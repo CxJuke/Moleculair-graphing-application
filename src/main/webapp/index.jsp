@@ -55,7 +55,7 @@
     <script type="text/javascript" src="js/ink-all.min.js"></script>
     <script type="text/javascript" src="js/autoload.js"></script>
 
-
+    <!-- load sigma dependansies -->
     <style type="text/css">
 
         body {
@@ -95,18 +95,20 @@
     <header class="vertical-space">
         <h1>Molecular graphing<small>Graphing with GRAPPA</small></h1>
     </header>
-    <div class="column-group gutters">
-        <div class="all-100">
-            <h2>Type a sequence to begin drawing</h2>
-            <form class="ink-form" action = "main.jsp" method = "POST">
-                <label class="ink-label">
-                <input type = "text" name = "Certain syntax">
-            </label>
-            </form>
-            <img src="js/holder.js/1650x928/auto/ink" alt="">
+        <div id="container">
+            <script src="js/sigma.min.js"></script>
+            <script src="js/sigma.parsers.json.min.js"></script>
+            <script>
+                sigma.parsers.json('data/data.json', {
+                    container: 'container',
+                    settings: {
+                        defaultNodeColor: '#000000'
+                    }
+                });
+            </script>
         </div>
-    </div>
-</div>
+
+
 <footer class="clearfix">
     <div class="ink-grid">
         <ul class="unstyled inline half-vertical-space">
@@ -116,6 +118,7 @@
         </ul>
         <p class="note">Identification of the owner of the copyright, either by name, abbreviation, or other designation by which it is generally known.</p>
     </div>
+
 </footer>
 </body>
 </html>
