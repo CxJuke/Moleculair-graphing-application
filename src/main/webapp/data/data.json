@@ -1,0 +1,90 @@
+{
+"nodes": [
+{
+"id": "c1",
+"label": "C",
+"x": 0,
+"y": 0,
+"size": 30,
+  "color": "#f44242"
+},
+  {
+    "id": "h11",
+    "label": "H",
+    "x": -0.2,
+    "y": 0,
+    "size": 20,
+    "color": "#efefef"
+  },
+
+  {
+    "id": "h12",
+    "label": "H",
+    "x": 0,
+    "y": -0.2,
+    "size": 20,
+    "color": "#efefef"
+  },
+
+  {
+    "id": "h13",
+    "label": "H",
+    "x": 0,
+    "y": 0.2,
+    "size": 20,
+    "color": "#efefef"
+  },
+{
+"id": "c2",
+"label": "C",
+"x": 0.2,
+"y": 0,
+"size": 5,
+  "color": "#f44242"
+},
+{
+"id": "c3",
+"label": "C",
+"x": 0.4,
+"y": 0,
+"size": 5,
+  "color": "#f44242"
+}
+],
+"edges": [
+{
+"id": "e0",
+"source": "c1",
+"target": "c2",
+  "size":10
+},
+{
+"id": "e1",
+"source": "c2",
+"target": "c3",
+  "size":10
+},
+  {
+    "id": "e2",
+    "source": "c1",
+    "target": "h11",
+    "size":10
+  },
+
+  {
+    "id": "e3",
+    "source": "c1",
+    "target": "h12",
+    "size":10
+  },
+
+  {
+    "id": "e4",
+    "source": "c1",
+    "target": "h13",
+    "size":10
+  }
+]
+}
+
+
