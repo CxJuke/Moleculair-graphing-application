@@ -9,6 +9,10 @@
 <html>
 <head>
     <title>Molecule grapher with grappa</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/sigma.min.js"></script>
+    <script src="js/sigma.parsers.json.min.js"></script>
+    <script src="js/formUpdater.js"></script>
     <style type="text/css">
         #container {
             max-width: 100%;
@@ -18,13 +22,12 @@
     </style>
 </head>
 <body>
-<script src="js/formUpdater.js"></script>
+
 <div id="dump"></div>
-<form><input type="text", id="t", value="<BB> c1(H1,H2,H3)", onkeyup="o();"/></form>
+<form><input type="text", id="t", value="<BB> c1(H1,H2,H3)"/></form>
 
 <div id="container"></div>
-<script src="js/sigma.min.js"></script>
-<script src="js/sigma.parsers.json.min.js"></script>
+
 
 <script>
     var s = new sigma('container');

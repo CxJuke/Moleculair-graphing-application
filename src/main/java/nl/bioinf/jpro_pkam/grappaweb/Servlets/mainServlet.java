@@ -1,5 +1,6 @@
 package nl.bioinf.jpro_pkam.grappaweb.Servlets;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,9 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "mainServlet")
+@WebServlet(name = "mainServlet", urlPatterns = "/graph.draw")
 public class mainServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String molecule = request.getParameter("molecule");
+        System.out.println("molecule = " + molecule);
+        request.setAttribute("molecule", molecule);
+        RequestDispatcher view = request.getRequestDispatcher("graph.jsp");
+        view.forward(request, response);
 
     }
 
