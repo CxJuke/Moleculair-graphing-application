@@ -12,6 +12,7 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/sigma.min.js"></script>
     <script src="js/sigma.parsers.json.min.js"></script>
+    <script src="js/sigma.layout.forceAtlas2.min.js"></script>
     <script src="js/formUpdater.js"></script>
     <style type="text/css">
         #container {
@@ -36,35 +37,27 @@
         id: 'c1',
         label: 'C, 2+',
         x: 0,
-        y: 0,
+        y:0,
         size: 25,
         color: '#f00'
     }).addNode({
         id: 'h11',
         label: 'H, 2+',
-        x: 1,
-        y:0,
         size: 15,
         color: '#e9e7ff'
     }).addNode({
         id: 'h12',
         label: 'H',
-        x: -1,
-        y: 0,
         size: 15,
         color: '#e9e7ff'
     }).addNode({
         id: 'h13',
         label: 'H',
-        x: 0,
-        y: 1,
         size: 15,
         color: '#e9e7ff'
     }).addNode({
         id: 'h14',
         label: 'H',
-        x: 0,
-        y: -1,
         size: 15,
         color: '#e9e7ff'
     }).addEdge({
@@ -95,7 +88,9 @@
         maxNodeSize: 50,
         scale: 100
     });
+    s.startForceAtlas2();
     s.refresh();
+    s.stopForceAtlas2();
 
 </script>
 
