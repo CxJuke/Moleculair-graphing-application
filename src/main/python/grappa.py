@@ -14,7 +14,7 @@
 # limitations under the License.
 
 """
-GRAPh PArser
+GRAPh Parser
 
 Build graphs from string definition:
 
