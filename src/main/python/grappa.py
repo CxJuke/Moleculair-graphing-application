@@ -70,6 +70,8 @@ import string
 
 import networkx as nx
 
+import argparse
+
 from vermouth import log_helpers
 #from ..log_helpers import StyleAdapter, get_logger
 
@@ -83,6 +85,13 @@ TGROUP = '[]'
 
 class GrappaSyntaxError(Exception):
     """Syntax of grappa string was invalid"""
+
+
+def argparser():
+    parser = argparse.ArgumentParser(description='Get string from commandline to get molecule structure')
+    parser.add_argument('-M', help='A string to build a molecule')
+    args = parser.parse_args()
+    print(args)
 
 
 def find_matching(symbols, string):
@@ -368,6 +377,7 @@ def process(graphstring, graphs={}):
     return G
 
 if __name__ == "__main__":
+    argparser()
     graph_string = "H1 C1(C2(H21,H22,H23),C3(H31,H32,H33),C4(H41,H42,H43))"
     graphs = process(graph_string)
 
