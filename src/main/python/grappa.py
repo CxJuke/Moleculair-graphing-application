@@ -69,6 +69,7 @@ complete description of the grappa minilanguage is given below:
 import string
 
 import networkx as nx
+import sys
 
 import argparse
 
@@ -91,7 +92,7 @@ def argparser():
     parser = argparse.ArgumentParser(description='Get string from commandline to get molecule structure')
     parser.add_argument('-M', help='A string to build a molecule')
     args = parser.parse_args()
-    print(args)
+    return args.M
 
 
 def find_matching(symbols, string):
@@ -376,10 +377,11 @@ def process(graphstring, graphs={}):
 
     return G
 
+def main():
+    input = argparser()
+    graphs = process(input)
+    print("String: ", input, "\nedges: ", graphs.edges, "\nNodes: ",graphs.nodes)
+    return 0
+
 if __name__ == "__main__":
-    argparser()
-    graph_string = "H1 C1(C2(H21,H22,H23),C3(H31,H32,H33),C4(H41,H42,H43))"
-    graphs = process(graph_string)
-
-
-    print("String: ",graph_string, "\nedges: ", graphs.edges, "\nNodes: ",graphs.nodes)
+    sys.exit(main())

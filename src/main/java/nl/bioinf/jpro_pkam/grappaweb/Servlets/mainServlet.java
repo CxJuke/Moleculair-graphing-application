@@ -1,5 +1,7 @@
 package nl.bioinf.jpro_pkam.grappaweb.Servlets;
 
+import nl.bioinf.jpro_pkam.grappaweb.python_interaction.interaction_python;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,8 +14,10 @@ import java.io.IOException;
 public class mainServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String molecule = request.getParameter("molecule");
-        System.out.println("molecule = " + molecule);
-        request.setAttribute("molecule", molecule);
+        String pythonVenv = getServletContext().getInitParameter("pythonVenv");
+        String grappa = getServletContext().getInitParameter("grappa.graph");
+        interaction_python grapher = new interaction_python();
+        grapher.getOutputGrappa(molecule, pythonVenv, grappa);
         RequestDispatcher view = request.getRequestDispatcher("graph.jsp");
         view.forward(request, response);
 

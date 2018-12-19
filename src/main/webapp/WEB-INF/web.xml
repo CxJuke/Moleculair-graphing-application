@@ -5,6 +5,10 @@
          version="4.0">
     <context-param>
         <param-name>pythonVenv</param-name>
-        <param-value>~/molecular_graphing-webapplication/venv/bin/python3</param-value>
+        <param-value>/homes/jprofijt/IdeaProjects/PythonVenv/vermouth/bin/python3</param-value>
+    </context-param>
+    <context-param>
+        <param-name>grappa.path</param-name>
+        <param-value>/homes/jprofijt/IdeaProjects/molecular_graphing-webapplication/src/main/python/grappa.py</param-value>
     </context-param>
 </web-app>

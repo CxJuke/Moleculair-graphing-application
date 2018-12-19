@@ -10,9 +10,9 @@
 <head>
     <title>Molecule grapher with grappa</title>
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/sigma.min.js"></script>
-    <script src="js/sigma.parsers.json.min.js"></script>
-    <script src="js/sigma.layout.forceAtlas2.min.js"></script>
+    <script src="js/d3.v3.js"></script>
+    <script type="text/javascript" src="js/jsnetworkx.js"></script>
+
     <script src="js/formUpdater.js"></script>
     <style type="text/css">
         #container {
@@ -30,68 +30,20 @@
 <div id="container"></div>
 
 
-<script>
-    var s = new sigma('container');
+<script type="text/javascript">
+    var G = new jsnx.Graph();
+    G.addNodesFrom(['H43', 'C1', 'H23', 'H21', 'H41', 'C2', 'H31', 'H33', 'H1', 'H42', 'H32', 'C4', 'C3', 'H22']);
+    G.addEdgesFrom([['H43', 'C4'], ['C1', 'H1'], ['C1', 'C4'], ['C1', 'C2'], ['C1', 'C3'], ['H23', 'C2'], ['H21', 'C2'], ['H41', 'C4'], ['C2', 'H22'], ['H31', 'C3'], ['H33', 'C3'], ['H42', 'C4'], ['H32', 'C3']]);
 
-    s.graph.addNode({
-        id: 'c1',
-        label: 'C, 2+',
-        x: 0,
-        y:0,
-        size: 25,
-        color: '#f00'
-    }).addNode({
-        id: 'h11',
-        label: 'H, 2+',
-        size: 15,
-        color: '#e9e7ff'
-    }).addNode({
-        id: 'h12',
-        label: 'H',
-        size: 15,
-        color: '#e9e7ff'
-    }).addNode({
-        id: 'h13',
-        label: 'H',
-        size: 15,
-        color: '#e9e7ff'
-    }).addNode({
-        id: 'h14',
-        label: 'H',
-        size: 15,
-        color: '#e9e7ff'
-    }).addEdge({
-        id: 'e0',
-        // Reference extremities:
-        source: 'c1',
-        target: 'h11'
-    }).addEdge({
-        id: 'e1',
-        // Reference extremities:
-        source: 'c1',
-        target: 'h12'
-    }).addEdge({
-        id: 'e2',
-        // Reference extremities:
-        source: 'c1',
-        target: 'h13'
-    }).addEdge({
-        id: 'e3',
-        // Reference extremities:
-        source: 'c1',
-        target: 'h14'
+    jsnx.draw(G, {
+        element: '#container',
+        withLabels: true,
+        nodeStyle: {
+            fill: function(d) {
+                return d.data.color || '#AAA';
+            }
+        }
     });
-
-    s.settings({
-        scalingMode: 'inside',
-        drawLabels: false,
-        maxNodeSize: 50,
-        scale: 100
-    });
-    s.startForceAtlas2();
-    s.refresh();
-    s.stopForceAtlas2();
-
 </script>
 
 </body>
