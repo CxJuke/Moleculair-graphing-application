@@ -30,20 +30,8 @@
 <div id="container"></div>
 
 
-<script type="text/javascript">
-    var G = new jsnx.Graph();
-    G.addNodesFrom(['H43', 'C1', 'H23', 'H21', 'H41', 'C2', 'H31', 'H33', 'H1', 'H42', 'H32', 'C4', 'C3', 'H22']);
-    G.addEdgesFrom([['H43', 'C4'], ['C1', 'H1'], ['C1', 'C4'], ['C1', 'C2'], ['C1', 'C3'], ['H23', 'C2'], ['H21', 'C2'], ['H41', 'C4'], ['C2', 'H22'], ['H31', 'C3'], ['H33', 'C3'], ['H42', 'C4'], ['H32', 'C3']]);
+<script id="graph" type="text/javascript">
 
-    jsnx.draw(G, {
-        element: '#container',
-        withLabels: true,
-        nodeStyle: {
-            fill: function(d) {
-                return d.data.color || '#AAA';
-            }
-        }
-    });
 </script>
 
 </body>

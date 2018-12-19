@@ -380,7 +380,7 @@ def process(graphstring, graphs={}):
 def main():
     input = argparser()
     graphs = process(input)
-    print("String: ", input, "\nedges: ", graphs.edges, "\nNodes: ",graphs.nodes)
+    print(graphs.edges,"\n", graphs.nodes)
     return 0
 
 if __name__ == "__main__":

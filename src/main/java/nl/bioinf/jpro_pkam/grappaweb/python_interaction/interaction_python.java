@@ -8,32 +8,44 @@ public class interaction_python {
     public static void main(String[] args) {
         interaction_python grappa = new interaction_python();
         try {
-            grappa.getOutputGrappa("'H1 C1(C2(H21,H22,H23),C3(H31,H32,H33),C4(H41,H42,H43))'", "/homes/jprofijt/IdeaProjects/PythonVenv/vermouth/bin/python3","/homes/jprofijt/IdeaProjects/molecular_graphing-webapplication/src/main/python/grappa.py" );
+            grappa.getOutputGrappa("H1C1(C2(H21,H22,H23),C3(H31,H32,H33),C4(H41,H42,H43))", "/homes/jprofijt/IdeaProjects/PythonVenv/vermouth/bin/python3.5","/homes/jprofijt/IdeaProjects/molecular_graphing-webapplication/src/main/python/grappa.py" );
         } catch (IOException e){
 
         }
 
     }
 
-    public void getOutputGrappa(String input, String venv, String grappa) throws IOException {
+    public convertGrappaMolecule getOutputGrappa(String input, String venv, String grappa) throws IOException {
         String s = null;
+        int index = 0;
+        convertGrappaMolecule graph = new convertGrappaMolecule();
         try {
-            Process p = Runtime.getRuntime().exec(venv);
+            String command = venv + " " + grappa + " -M " + input;
+            Process p = Runtime.getRuntime().exec(command);
 
             BufferedReader stdInput = new BufferedReader(new
                     InputStreamReader(p.getInputStream()));
             BufferedReader stdError = new BufferedReader(new
                     InputStreamReader(p.getErrorStream()));
 
-            System.out.println("Output grappa:\n");
-            while ((s = stdInput.readLine()) != null) {
-                System.out.println(s);
-            }
+            String edges = null;
+            String nodes = null;
 
-            System.out.println("Errors:\n");
+            while ((s = stdInput.readLine()) != null) {
+                if (index == 0) {
+                    graph.setEdges(s);
+                } else if (index == 1) {
+                    graph.setNodes(s);
+
+                }
+                index += 1;
+
+
+            }
             while ((s = stdError.readLine()) != null) {
                 System.out.println(s);
             }
+
 
             System.exit(0);
         }
@@ -43,7 +55,7 @@ public class interaction_python {
             e.printStackTrace();
             System.exit(-1);
 
-        }
+        } return graph;
     }
 }
 
