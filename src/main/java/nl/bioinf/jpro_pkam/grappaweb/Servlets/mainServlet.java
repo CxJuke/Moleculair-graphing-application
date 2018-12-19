@@ -16,9 +16,11 @@ public class mainServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String molecule = request.getParameter("molecule");
         String pythonVenv = getServletContext().getInitParameter("pythonVenv");
-        String grappa = getServletContext().getInitParameter("grappa.graph");
+        String grappa = getServletContext().getInitParameter("grappa.path");
         interaction_python grapher = new interaction_python();
         convertGrappaMolecule graph = grapher.getOutputGrappa(molecule, pythonVenv, grappa);
+        request.setAttribute("nodes", graph.nodes);
+        request.setAttribute("edges", graph.edges);
 
         RequestDispatcher view = request.getRequestDispatcher("graph.jsp");
         view.forward(request, response);
