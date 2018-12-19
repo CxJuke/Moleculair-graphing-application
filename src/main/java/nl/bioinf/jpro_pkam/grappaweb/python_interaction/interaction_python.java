@@ -5,15 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class interaction_python {
-    public static void main(String[] args) {
-        interaction_python grappa = new interaction_python();
-        try {
-            grappa.getOutputGrappa("H1C1(C2(H21,H22,H23),C3(H31,H32,H33),C4(H41,H42,H43))", "/homes/jprofijt/IdeaProjects/PythonVenv/vermouth/bin/python3.5","/homes/jprofijt/IdeaProjects/molecular_graphing-webapplication/src/main/python/grappa.py" );
-        } catch (IOException e){
 
-        }
-
-    }
 
     public convertGrappaMolecule getOutputGrappa(String input, String venv, String grappa) throws IOException {
         String s = null;
@@ -22,9 +14,9 @@ public class interaction_python {
         try {
             String command = venv + " " + grappa + " -M " + input;
             Process p = Runtime.getRuntime().exec(command);
-
             BufferedReader stdInput = new BufferedReader(new
                     InputStreamReader(p.getInputStream()));
+
             BufferedReader stdError = new BufferedReader(new
                     InputStreamReader(p.getErrorStream()));
 
