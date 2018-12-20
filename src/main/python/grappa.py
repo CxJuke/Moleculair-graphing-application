@@ -74,9 +74,6 @@ import sys
 import argparse
 
 from vermouth import log_helpers
-#from ..log_helpers import StyleAdapter, get_logger
-
-LOGGER = log_helpers.StyleAdapter(log_helpers.get_logger(__name__))
 
 
 DIRECTIVES = '@(),-=!'
@@ -315,17 +312,14 @@ def process(graphstring, graphs={}):
             if token == '.' and node is not None:
                 # Adding stub (or stub branch) to active node
                 G.nodes[node]['stub'] = G.nodes[node].get('stub', 0) + 1
-                LOGGER.debug("Adding stub to {}: {}", node, G.nodes[node]['stub'],
-                             type='grappa')
+
             else:
                 # Token is node or nodes
                 nodes = expand_nodestring(token)
                 if node is None:
-                    LOGGER.debug('Unrooted nodes: {}', nodes, type='grappa')
                     G.add_nodes_from(nodes)
                 else:
                     G.add_edges_from((node, n) for n in nodes)
-                    LOGGER.debug("Edge: {} to {}", node, nodes, type='grappa')
                 active = nodes[-1]
             continue
 
@@ -338,7 +332,6 @@ def process(graphstring, graphs={}):
         elif token == ')':
             # End branch(es) - switch to active parent
             active = parent.pop()
-            LOGGER.debug("End of branching: active: {}", active[-1], type='grappa')
 
         elif token == ',':
             # Switch to next branch
@@ -347,7 +340,7 @@ def process(graphstring, graphs={}):
         elif token == '@':
             # Set node as active
             active = next(tokens)
-            LOGGER.debug("Setting active: {}", active, type='grappa')
+
 
         elif token == '-':
             # Remove node
@@ -361,7 +354,6 @@ def process(graphstring, graphs={}):
             # Include graph from graphs and relabel nodes according to tag
             # <tag:graphname@node>. include_graph relabels its nodes.
             B, at = include_graph(graphs, token[1:-1])
-            LOGGER.debug("Including graph from {}: {}", token, B.nodes, type='grappa')
             G.add_nodes_from(B.nodes.items())
             G.add_edges_from(B.edges())
             if active is not None:
@@ -371,8 +363,6 @@ def process(graphstring, graphs={}):
 
         elif token[0] == '{':
             # Set attributes to active node
-            LOGGER.debug("Setting attributes at active atom: {}",
-                         parse_attribute_token(token), type='grappa')
             G.nodes[active].update(parse_attribute_token(token))
 
     return G
