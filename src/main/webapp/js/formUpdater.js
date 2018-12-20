@@ -5,7 +5,7 @@ $(document).ready(function () {
                 molecule: $('#t').val()
             },
             function(data){
-           $('#graph').html(data);
+           $('#container').html(data);
             });
 
     });

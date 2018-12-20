@@ -30,9 +30,5 @@
 <div id="container"></div>
 
 
-<script id="graph" type="text/javascript">
-
-</script>
-
 </body>
 </html>
