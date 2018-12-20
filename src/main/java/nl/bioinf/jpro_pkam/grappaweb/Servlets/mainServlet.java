@@ -18,6 +18,7 @@ public class mainServlet extends HttpServlet {
         String pythonVenv = getServletContext().getInitParameter("pythonVenv");
         String grappa = getServletContext().getInitParameter("grappa.path");
         interaction_python grapher = new interaction_python();
+        System.out.println(molecule+" "+ pythonVenv + " " + grappa);
         convertGrappaMolecule graph = grapher.getOutputGrappa(molecule, pythonVenv, grappa);
         request.setAttribute("nodes", graph.nodes);
         request.setAttribute("edges", graph.edges);

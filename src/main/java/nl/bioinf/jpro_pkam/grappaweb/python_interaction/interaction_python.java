@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 public class interaction_python {
 
 
+    private boolean status = true;
+
     public convertGrappaMolecule getOutputGrappa(String input, String venv, String grappa) throws IOException {
         String s = null;
         int index = 0;
@@ -25,27 +27,31 @@ public class interaction_python {
 
             while ((s = stdInput.readLine()) != null) {
                 if (index == 0) {
-                    graph.setEdges(s);
-                } else if (index == 1) {
-                    graph.setNodes(s);
+                    graph.setEdges(s.toUpperCase());
+                } else if (index == 1 && !s.contains("error:")) {
+                    graph.setNodes(s.toUpperCase());
 
+                }
+                else {
+                    status = false;
                 }
                 index += 1;
 
 
             }
             while ((s = stdError.readLine()) != null) {
+                System.out.println("dit is een error");
                 System.out.println(s);
             }
 
 
-            System.exit(0);
+
         }
 
         catch (IOException e) {
             System.out.println("Error message: \n");
             e.printStackTrace();
-            System.exit(-1);
+
 
         } return graph;
     }
