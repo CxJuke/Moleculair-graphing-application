@@ -14,7 +14,10 @@ public class interaction_python {
         int index = 0;
         convertGrappaMolecule graph = new convertGrappaMolecule();
         try {
-            String command = venv + " " + grappa + " -M " + input;
+            String[] command = {venv,
+                    grappa,
+                    "-M",
+                    input};
             Process p = Runtime.getRuntime().exec(command);
             BufferedReader stdInput = new BufferedReader(new
                     InputStreamReader(p.getInputStream()));
