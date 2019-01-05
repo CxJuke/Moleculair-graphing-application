@@ -369,7 +369,7 @@ def process(graphstring, graphs={}):
 
 def main():
     input = argparser()
-    graphs = process(input)
+    graphs = process("/#=1-3/(C#(H#[1-2]))/")
     print(graphs.edges,"\n", graphs.nodes)
     return 0
 

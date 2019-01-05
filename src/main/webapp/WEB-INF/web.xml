@@ -5,10 +5,10 @@
          version="4.0">
     <context-param>
         <param-name>pythonVenv</param-name>
-        <param-value>/homes/pkamphuis/molecular_graphing-webapplication/venv/bin/python3.5</param-value>
+        <param-value>C:\Users\Priscilla Kamphuis\Documents\molecular_graphing-webapplication\venv\Scripts\python.exe</param-value>
     </context-param>
     <context-param>
         <param-name>grappa.path</param-name>
-        <param-value>//homes/pkamphuis/molecular_graphing-webapplication/src/main/python/grappa.py</param-value>
+        <param-value>C:\Users\Priscilla Kamphuis\Documents\molecular_graphing-webapplication\src\main\python\grappa.py</param-value>
     </context-param>
 </web-app>
