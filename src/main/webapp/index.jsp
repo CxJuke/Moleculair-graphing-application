@@ -24,7 +24,7 @@
 
 <div class="container-fluid">
     <div class="panel-heading">
-        <h2><i class="fa fa-map-marker red"></i><strong>Molecule Graph</strong></h2>
+        <h2><i class="fa fa-map-marker red"></i><strong>Molecule asdf Graph</strong></h2>
     </div>
     <div id="input" class="container-fluid">
         <form>
@@ -35,7 +35,7 @@
         </form>
     </div>
     <div class="panel-body-map">
-        <div id="container" style="height:380px;"></div>
+        <div id="container" style="height:80vh;"></div>
     </div>
 
 </div>
