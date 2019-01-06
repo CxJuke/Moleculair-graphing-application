@@ -12,12 +12,10 @@ package nl.bioinf.jpro_pkam.grappaweb.python_interaction;
 * Standard colours:
     Hydrogen = White
     Oxygen = Red
-    Chlorine = Green
     Nitrogen = Blue
     Carbon = Grey
     Sulphur = Yellow
     Phosphorus = Orange
-    Other = Varies - mostly Dark Red/Pink/Maroon
   */
 
 
@@ -36,15 +34,14 @@ public class convertGrappaMolecule {
         colors.put("C","grey");
         colors.put("O", "red");
         colors.put("N", "blue");
-        colors.put("Cl", "green");
         colors.put("F", "orange");
         colors.put("S", "yellow");
 
         this.nodes = nodes;
-
-        System.out.println("Nodes: "+this.nodes);
         this.nodes = this.addColour();
     }
+
+
 
 
 
@@ -60,7 +57,7 @@ public class convertGrappaMolecule {
 
             String mol = String.valueOf(val.trim().charAt(0));
             int mol_val = Integer.parseInt(val.trim().substring(1));
-             output += "[" + mol_val + ", {color: '" +colors.get(mol)+"'}],";
+            output += "['" + mol+ mol_val + "', {color: '" +colors.get(mol)+"'}],";
 
 
         }
