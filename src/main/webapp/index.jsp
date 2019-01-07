@@ -38,7 +38,7 @@
     <div class="panel-body-map">
         <div id="container" style="height:80vh;"></div>
     </div>
-    <div id="input" class="container-fluid">
+    <div id="input_name" class="container-fluid">
         <form action="save.molecule" method="post">
             <div class="form-group" style="align-content: center;">
                 Molecule name:<input type="text" name="moleculename"><br>
