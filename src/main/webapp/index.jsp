@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="js/bootstrap.min.js"></script>
+</head>
 <body>
 
 <div class="container-fluid">
@@ -30,7 +31,7 @@
         <form action="save_page.jsp" method="post">
             <div class="form-group" style="align-content: center;">
                 <input id="t" class="form-control form-control-lg" type="text" placeholder="Molecule" style="width: 100%; align-content: center">
-                <input type="submit" value="Save">
+                <input type="submit" value="Save to database">
             </div>
 
         </form>
