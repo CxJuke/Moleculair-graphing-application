@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet(name = "saveMoleculeServlet", urlPatterns = "/save.molecule")
 public class saveMoleculeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
