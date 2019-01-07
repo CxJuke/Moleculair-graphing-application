@@ -27,7 +27,7 @@
         <h2><i class="fa fa-map-marker red"></i><strong>Molecule Graph</strong></h2>
     </div>
     <div id="input" class="container-fluid">
-        <form>
+        <form action="save_page.jsp" method="post">
             <div class="form-group" style="align-content: center;">
                 <input id="t" class="form-control form-control-lg" type="text" placeholder="Molecule" style="width: 100%; align-content: center">
                 <input type="submit" value="Save">
