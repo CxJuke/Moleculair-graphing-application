@@ -28,16 +28,23 @@
         <h2><i class="fa fa-map-marker red"></i><strong>Molecule Graph</strong></h2>
     </div>
     <div id="input" class="container-fluid">
-        <form action="save_page.jsp" method="post">
+        <form>
             <div class="form-group" style="align-content: center;">
                 <input id="t" class="form-control form-control-lg" type="text" placeholder="Molecule" style="width: 100%; align-content: center">
-                <input type="submit" value="Save to database">
             </div>
 
         </form>
     </div>
     <div class="panel-body-map">
         <div id="container" style="height:80vh;"></div>
+    </div>
+    <div id="input" class="container-fluid">
+        <form action="save.molecule" method="post">
+            <div class="form-group" style="align-content: center;">
+                Molecule name:<input type="text" name="moleculename"><br>
+                <input type="submit" value="Save to database">
+            </div>
+        </form>
     </div>
 
 </div>
