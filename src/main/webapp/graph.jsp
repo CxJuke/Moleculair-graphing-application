@@ -5,7 +5,7 @@
 
     jsnx.draw(G, {
         element: '#container',
-        withLabels: true,
+        withLabels: false,
         nodeStyle: {
             fill: function(d) {
                 return d.data.color || '#AAA';
