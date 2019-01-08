@@ -33,4 +33,13 @@ public class databaseConnector {
         System.out.println(e.getMessage());
     }
     }
+
+    public static void create() {
+        String sql = "CREATE TABLE IF NOT EXISTS molecules (\n"
+                + "name text NOT NULL, \n"
+                + "molecule text UNIQUE\n"
+                + ");";
+
+
+    }
 }
