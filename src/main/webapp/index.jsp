@@ -20,10 +20,10 @@
     <script src="js/formUpdater.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="js/bootstrap.min.js"></script>
 </head>
-<body class= "bg-light">
+<body>
 
 <div class="container-fluid">
     <div class="panel-heading">
@@ -35,20 +35,13 @@
                 <input id="t" class="form-control form-control-lg" type="text" data-toggle="tooltip" title="Type your Molecule to be drawn here! Example: /#=1-3/(C#(H#[1-2]))/" placeholder="Molecule" style="width: 100%; align-content: center" >
             </div>
         </form>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Save Molecule</button>
+
     </div>
 
     <div class="container-fluid">
         <div id="container" class="col-12 h-75"></div>
     </div>
-    <div id="input_name" class="container-fluid">
-        <form action="save.molecule" method="post">
-            <div class="offset-5" style="align-content: center;" >
-                Molecule name:<input type="text" name="moleculename"><br>
-                <input type="submit" value="Save to database">
-            </div>
-        </form>
-    </div>
+    <button type="button" class="btn btn-primary offset-5" data-toggle="modal" data-target=".bd-example-modal-lg">Save Molecule</button>
 
 </div>
 
