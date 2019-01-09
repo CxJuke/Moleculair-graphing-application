@@ -21,18 +21,9 @@ package nl.bioinf.jpro_pkam.grappaweb.python_interaction;
 
  // Imports
 
-import java.io.FileReader;
-import java.util.Iterator;
-import java.io.IOException;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 public class convertGrappaMolecule {
 
 
@@ -189,16 +180,18 @@ public class convertGrappaMolecule {
             //make string for drawing tool with colors for the atoms
             Matcher moleculeMatch = molecule.matcher(val.trim());
             Matcher indexMatch = index.matcher(val.trim());
-            String mol = null;
             if (moleculeMatch.find()) {
-                mol = moleculeMatch.group(1);
-            }
-            int mol_val = 0;
-            if (indexMatch.find()) {
-                mol_val = Integer.parseInt(indexMatch.group(1));
+                String mol = moleculeMatch.group(1);
+                if (indexMatch.find()) {
+
+                    int mol_val = Integer.parseInt(indexMatch.group(1));
+                    output += "['" + mol + mol_val + "', {color: '" + colors.get(mol) + "'}],";
+                } else {output += "['" + mol + "', {color: '" + colors.get(mol) + "'}],";}
+            } else {
+                output += "['" + val.trim() + "'],";
             }
 
-            output += "['" + mol + mol_val + "', {color: '" + colors.get(mol) + "'}],";
+
 
 
         }

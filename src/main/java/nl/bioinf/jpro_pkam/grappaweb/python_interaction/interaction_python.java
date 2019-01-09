@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 public class interaction_python {
 
 
-    private boolean status = true;
+    public boolean status = true;
 
     /**
      *This function catch the output of the python grappa tool from the commandline in java
@@ -26,6 +26,7 @@ public class interaction_python {
      */
     public convertGrappaMolecule getOutputGrappa(String input, String venv, String grappa) throws IOException {
         String s = null;
+
         int index = 0;
         convertGrappaMolecule graph = new convertGrappaMolecule();
         try {
@@ -59,7 +60,7 @@ public class interaction_python {
             }
             //print error if something went wrong
             while ((s = stdError.readLine()) != null) {
-                System.out.println("dit is een error");
+                System.out.println("There was a problem with grappa.py. Error:");
                 System.out.println(s);
             }
 
@@ -68,8 +69,10 @@ public class interaction_python {
         }
         //print error if something went wrong
         catch (IOException e) {
+            this.status = false;
             System.out.println("Error message: \n");
             e.printStackTrace();
+
 
 
         } return graph;
