@@ -1,6 +1,7 @@
 package nl.bioinf.jpro_pkam.grappaweb.Database;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class databaseConnector {
 
@@ -53,13 +54,33 @@ public class databaseConnector {
 
     try (Connection connection = this.connect(database);
          PreparedStatement pstmt = connection.prepareStatement(sql)) {
-        pstmt.setString(1, moleculeName);
+        pstmt.setString(1, moleculeName.toLowerCase());
         pstmt.setString(2, Molecule);
         pstmt.executeUpdate();
 
     } catch (SQLException e) {
         System.out.println(e.getMessage());
     }
+    }
+
+    public ArrayList<String> search(String name, String database) {
+        String query = "SELECT name from ? WHERE name LIKE ?";
+        ArrayList<String> names = new ArrayList<>();
+
+        try (Connection connection = this.connect(database);
+             PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setString(1, database);
+            pstmt.setString(2, name.toLowerCase());
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                names.add(rs.getString(1));
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } return names;
+
     }
 
 
