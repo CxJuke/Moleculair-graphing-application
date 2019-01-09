@@ -36,6 +36,7 @@
                 <a href="#" data-toggle="tooltip" title="Type your molecule here!">?</a>
             </div>
         </form>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Save Molecule</button>
     </div>
 
     <div class="panel-body-map">
@@ -52,6 +53,23 @@
 
 </div>
 
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="container">
+            <form class="offset-5" action="/save.molecule" method="post">
+                Molecule name:<br/>
+                <input type="text" name="name"><br/>
+                Molecule String:<br/>
+                <input type="text" name="molecule" value=$('#t')><br/>
+                <input class="btn btn-primary" type="submit" value="Save">
+
+            </form>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
