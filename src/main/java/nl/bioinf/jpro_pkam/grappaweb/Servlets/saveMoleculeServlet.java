@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "saveMoleculeServlet", urlPatterns = "/save.molecule")
 public class saveMoleculeServlet extends HttpServlet {
@@ -16,8 +17,15 @@ public class saveMoleculeServlet extends HttpServlet {
         String name = request.getParameter("name");
         String database = getServletContext().getInitParameter("database");
         databaseConnector db = new databaseConnector();
-        db.create(database);
-        db.insert(name, molecule, database);
+        try {
+            db.create(database);
+            db.insert(name, molecule, database);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        response.sendRedirect("/");
+
 
 
     }

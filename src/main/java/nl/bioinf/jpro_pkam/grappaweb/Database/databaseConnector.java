@@ -4,7 +4,10 @@ import java.sql.*;
 
 public class databaseConnector {
 
-    public static void create(String filename) {
+    public static void create(String filename) throws SQLException {
+
+
+
         Connection connection = new databaseConnector().connect(filename);
 
 
@@ -22,15 +25,25 @@ public class databaseConnector {
         }
     }
 
-    private Connection connect(String database) {
+    private Connection connect(String database) throws SQLException {
         Connection connection = null;
         try {
-            String url = "jdbc:sqlite:src/main/webapp/data/" + database;
+            String driverClassName="org.sqlite.JDBC";
+            Class.forName(driverClassName).newInstance();
+            String url = "jdbc:sqlite:" + database;
 
             connection = DriverManager.getConnection(url);
+        } catch (ClassNotFoundException e){
+            throw new SQLException(e);
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            } return connection;
+            } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        return connection;
 
         }
 
