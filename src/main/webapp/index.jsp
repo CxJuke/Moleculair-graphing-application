@@ -32,8 +32,7 @@
     <div id="input" class="container-fluid">
         <form>
             <div class="form-group" style="align-content: center;">
-                <input id="t" class="form-control form-control-lg" type="text" placeholder="Molecule" style="width: 100%; align-content: center" >
-                <a href="#" data-toggle="tooltip" title="Type your molecule here!">?</a>
+                <input id="t" class="form-control form-control-lg" type="text" data-toggle="tooltip" title="Type your Molecule to be drawn here!" placeholder="Molecule" style="width: 100%; align-content: center" >
             </div>
         </form>
     </div>
