@@ -23,13 +23,14 @@ public class mainServlet extends HttpServlet {
         String grappa = getServletContext().getInitParameter("grappa.path");
         interaction_python grapher = new interaction_python();
         convertGrappaMolecule graph = grapher.getOutputGrappa(molecule, pythonVenv, grappa);
-        request.setAttribute("nodes", graph.nodes);
-        request.setAttribute("edges", graph.edges);
+            request.setAttribute("error", grapher.status);
+            request.setAttribute("nodes", graph.nodes);
+            request.setAttribute("edges", graph.edges);
 
-        RequestDispatcher view = request.getRequestDispatcher("graph.jsp");
-        view.forward(request, response);
+            RequestDispatcher view = request.getRequestDispatcher("graph.jsp");
+            view.forward(request, response);
+        }
 
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
