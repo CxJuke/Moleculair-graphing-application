@@ -41,7 +41,7 @@
     <div class="container-fluid">
         <div id="container" class="col-12 h-75"></div>
     </div>
-    <button type="button" class="btn btn-primary offset-5" data-toggle="modal" data-target=".bd-example-modal-lg">Save Molecule</button>
+    <button type="button" class="btn btn-primary col-lg-1" style="float: none;margin: 0 auto;" data-toggle="modal" data-target=".bd-example-modal-lg">Save Molecule</button>
 
 </div>
 
