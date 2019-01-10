@@ -62,6 +62,7 @@ public class interaction_python {
             while ((s = stdError.readLine()) != null) {
                 System.out.println("There was a problem with grappa.py. Error:");
                 System.out.println(s);
+                this.status = false;
             }
 
 
@@ -69,7 +70,7 @@ public class interaction_python {
         }
         //print error if something went wrong
         catch (IOException e) {
-            this.status = false;
+
             System.out.println("Error message: \n");
             e.printStackTrace();
 
