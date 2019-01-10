@@ -17,11 +17,17 @@
     <script src="js/hover.js"></script>
 
 
-    <script src="js/formUpdater.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/formUpdater.js"></script>
+    <script>
+        var mol_old = ''
+        var status = 'true'
+    </script>
 </head>
 <body>
 
@@ -29,17 +35,20 @@
     <div class="panel-heading">
         <h1><i class="offset-5"></i><strong>Molecule Graph</strong></h1>
     </div>
-    <div id="input" class="container-fluid">
         <form>
-            <div class="col-12" style="align-content: center;">
-                <input id="t" class="form-control form-control-lg" type="text" data-toggle="tooltip" title="Type your Molecule to be drawn here! Example: /#=1-3/(C#(H#[1-2]))/" placeholder="Molecule" style="width: 100%; align-content: center" >
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input id="t" class="form-control form-control-lg" type="text" placeholder="Begin building your molecule...">
+                    <div class="invalid-feedback">
+                        When building, make sure to separate each finished molecule with spaces & check if all brackets are closed. Click <a id="help">here</a> for more help
+                    </div>
+                </div>
             </div>
+
         </form>
 
-    </div>
-
     <div class="container-fluid">
-        <div id="container" class="col-12 h-75"></div>
+        <div id="container" class="col-12 h-75"><script>var mol_old = ''</script></div>
     </div>
     <button type="button" class="btn btn-primary col-lg-1" style="float: none;margin: 0 auto;" data-toggle="modal" data-target=".bd-example-modal-lg">Save Molecule</button>
 
@@ -49,13 +58,17 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="container">
-            <form class="offset-5" action="/save.molecule" method="post">
-                Molecule name:<br/>
-                <input type="text" name="name"><br/>
-                Molecule String:<br/>
-                <input type="text" name="molecule" value=$('#t')><br/>
+            <form action="/save.molecule" method="post">
+                <div class="form-group">
+                    <label for="moleculeName">Name for molecule</label>
+                    <input type="text" class="form-control" id="moleculeName" aria-describedby="namingHelp" placeholder="Molecule name">
+                    <small id="namingHelp" class="form-text text-muted">Name the molecule you want to save. Make sure that this name describes the molecule correctly</small>
+                </div>
+                <div class="form-group">
+                    <label for="SaveMolecule">Molecule build string that will be saved</label>
+                    <input type="text" class="form-control" id="SaveMolecule" value="" readonly>
+                </div>
                 <input class="btn btn-primary" type="submit" value="Save">
-
             </form>
 
             </div>

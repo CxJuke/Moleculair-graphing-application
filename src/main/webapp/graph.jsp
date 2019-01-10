@@ -1,15 +1,17 @@
 <script  type="text/javascript">
-    var status = ${requestScope.error};
+    status = '${requestScope.error}';
+    mol_old = '${requestScope.mol_old}';
+    var builder = $('#t');
 
-    if (!status) {
-        $('#t').addClass('border-danger')
+
+    if (status !== "true") {
+        builder.addClass('is-invalid');
 
     } else {
-        $('#t').removeClass('border-danger')
+        builder.removeClass('is-invalid');
         var G = new jsnx.Graph();
         G.addNodesFrom(${requestScope.nodes});
         G.addEdgesFrom(${requestScope.edges});
-
         jsnx.draw(G, {
             element: '#container',
             withLabels: false,
