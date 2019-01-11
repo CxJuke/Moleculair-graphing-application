@@ -7,7 +7,7 @@ $(document).ready(function () {
                     molecule: mol
                 },
                 function (data) {
-                    $('#container').html(data);
+                    $('#mainContainer').append(data);
 
                 });
                 mol_old = mol

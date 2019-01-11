@@ -24151,6 +24151,7 @@
                         default:
                             labelFunc = function (d) {
                                 return d.node;
+
                             };
                     }
                 }
@@ -24509,11 +24510,12 @@
                 });
                 var nsel = selection.enter().append('g').classed('node', true).call(drag);
 
-                nsel.append(config.nodeShape).classed('node-shape', true);
+
 
                 if (config.labels) {
-                    nsel.append('text').text(config.labels);
+                    nsel.append(config.nodeShape).classed('node-shape', true).attr("id", config.labels);
                 }
+
 
                 return selection;
             }

@@ -26,6 +26,7 @@ public class mainServlet extends HttpServlet {
             request.setAttribute("error", grapher.status);
             request.setAttribute("nodes", graph.nodes);
             request.setAttribute("edges", graph.edges);
+            request.setAttribute("AttributeLists", graph.nodeAttributes);
             request.setAttribute("mol_old", molecule);
 
             RequestDispatcher view = request.getRequestDispatcher("graph.jsp");

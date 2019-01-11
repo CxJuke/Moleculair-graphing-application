@@ -15,6 +15,8 @@
     <script src="js/d3.v3.js"></script>
     <script type="text/javascript" src="js/jsnetworkx.unminify.js"></script>
     <script src="js/hover.js"></script>
+    <script src="js/stringFormatter.js"></script>
+
 
 
 
@@ -48,7 +50,8 @@
         </form>
 
     <div class="container-fluid">
-        <div id="container" class="col-12 h-75"><script>var mol_old = ''</script></div>
+        <div id="mainContainer" class="col-12 h-75">
+        </div>
     </div>
     <button type="button" class="btn btn-primary col-lg-1" style="float: none;margin: 0 auto;" data-toggle="modal" data-target=".bd-example-modal-lg">Save Molecule</button>
 
@@ -75,6 +78,10 @@
         </div>
     </div>
 </div>
+<div id="scripts" hidden>
+
+</div>
+<div id="scripts2" hidden></div>
 
 </body>
 </html>

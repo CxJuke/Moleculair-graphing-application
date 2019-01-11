@@ -30,10 +30,15 @@ public class interaction_python {
         int index = 0;
         convertGrappaMolecule graph = new convertGrappaMolecule();
         try {
+            
             String[] command = {venv,
                     grappa,
                     "-M",
                     input};
+            String cmdstring = String.join(" ", command);
+
+            System.out.println("command = " + cmdstring);
+
             Process p = Runtime.getRuntime().exec(command);
             BufferedReader stdInput = new BufferedReader(new
                     InputStreamReader(p.getInputStream()));
@@ -41,18 +46,16 @@ public class interaction_python {
             BufferedReader stdError = new BufferedReader(new
                     InputStreamReader(p.getErrorStream()));
 
-            String edges = null;
-            String nodes = null;
 
             while ((s = stdInput.readLine()) != null) {
                 if (index == 0) {
                     graph.setEdges(s.toUpperCase());
-                } else if (index == 1 && !s.contains("error:")) {
-                    graph.setNodes(s.toUpperCase());
+                } else if (index == 1) {
+                    graph.setNodeAttributes(s);
 
-                }
-                else {
-                    status = false;
+                } else {
+
+                    graph.setNodes(s.toUpperCase());
                 }
                 index += 1;
 

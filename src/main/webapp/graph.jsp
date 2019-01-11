@@ -1,3 +1,4 @@
+<div id="container" class="w-100 h-100">
 <script  type="text/javascript">
     status = '${requestScope.error}';
     mol_old = '${requestScope.mol_old}';
@@ -14,17 +15,28 @@
         G.addEdgesFrom(${requestScope.edges});
         jsnx.draw(G, {
             element: '#container',
-            withLabels: false,
+            withLabels: true,
+            labels: labelFunc = function (d) {
+                return d.node;
+
+            },
             nodeStyle: {
                 fill: function(d) {
                     return d.data.color || '#AAA';
                 }
+            },
+            nodeAttr: {
+                r: 20
             }
         });
     }
 
 
 </script>
+
+</div>
+${requestScope.AttributeLists}
+<script src="js/nodeHover.js"></script>
 
 
 
