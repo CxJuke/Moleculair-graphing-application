@@ -45,7 +45,7 @@ complete description of the grappa minilanguage is given below:
     {attr=val}  : set attribute on active node (can be
                   attributes like:  element, charge, valence, stubs
                   element is set to FIRST LETTER of name,
-                  unless specified as attribute
+                  unless speicfied as attribute
                   attribute chiral has tuple of three nodes,
                   which define chirality according to right-hand rule
 
@@ -593,12 +593,15 @@ def process(graphstring, graphs=graph_dict()):
 
     return G
 
+
 def main():
-    input = argparser()
+    argument_reader = argparser()
     # graphs = process("/#=1-3/(C#(H#[1-2]))/")
-    graphs = process(input)
-    print(graphs.edges,"\n", graphs.nodes)
+    graphs = process(argument_reader)
+    print(graphs.edges, "\n", list(graphs.nodes.data()), "\n", graphs.nodes)
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())
+
