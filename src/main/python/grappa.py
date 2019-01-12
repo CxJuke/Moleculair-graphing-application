@@ -598,7 +598,7 @@ def main():
     argument_reader = argparser()
     # graphs = process("/#=1-3/(C#(H#[1-2]))/")
     graphs = process(argument_reader)
-    print(graphs.edges, "\n", list(graphs.nodes.data()), "\n", graphs.nodes)
+    print(graphs.edges, "\n", "[" + ";".join(map(str, list(graphs.nodes.data()))) + "]", "\n", graphs.nodes)
     return 0
 
 
