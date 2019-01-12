@@ -17,11 +17,13 @@ package nl.bioinf.jpro_pkam.grappaweb.python_interaction;
     Carbon = Grey
     Sulphur = Yellow
     Phosphorus = Orange
+  -----------------------
+    Updated to use Jmol hex colorcodes which gives the molecules a lot more color options
+    [H, {color: 'FFFFFF'}
 **/
 
  // Imports
 
-import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -183,40 +185,36 @@ public class convertGrappaMolecule {
 
         Pattern molecule = Pattern.compile("([A-Z]{1,2})");
         Pattern index = Pattern.compile("(\\d{1,2})");
-        Pattern AttributeString = Pattern.compile("\\{.*?}");
+        Pattern AttributeString = Pattern.compile("\\{.+?}");
         StringBuilder attributeList = new StringBuilder();
 
 
         for (String val : seperated) {
-            Pattern Attributes = Pattern.compile("'(" + val.trim().toUpperCase() + "|" + val.trim().toLowerCase() + ")',\\W\\{.*?}");
-            System.out.println("Attributes.toString() = " + Attributes.toString());
+            String ID = val.trim();
+            Pattern Attributes = Pattern.compile("'(" + ID.toUpperCase() + "|" + ID.toLowerCase() + ")',\\W\\{.*?}");
 
             //make string for drawing tool with colors for the atoms
             Matcher moleculeMatch = molecule.matcher(val.trim());
             Matcher indexMatch = index.matcher(val.trim());
             Matcher AttributeMatch = Attributes.matcher(Attr);
-            System.out.println("Attr = " + Attr);
             if (AttributeMatch.find()) {
+                Matcher currentAttributes = AttributeString.matcher(AttributeMatch.group());
+                attributeList.append("<ul class=\"list-group w-25 d-none\" id=\"").append(ID).append("\" style=\"position: absolute; right: 10px; top: 10px\">");
+                attributeList.append("<li class=\"list-group-item active\">").append("Node ID: ").append(ID).append("</li>");
+                if (currentAttributes.find()) {
 
-                String[] currentAttributes = AttributeMatch.group().split(",");
-                int i = 0;
-                for (String s: currentAttributes) {
-                    if (i == 0) {
-                        attributeList = new StringBuilder("<ul class=\"list-group w-25 d-none\" id=\"" + s.replace("'", "").replace("'", "") + "\" style=\"position: absolute; right: 10px; top: 10px\">");
-                        attributeList.append("<li class=\"list-group-item active\">").append("id: ").append(s.replace("'", "").replace("'", "")).append("</li>");
-                    } else {
-                        attributeList.append("<li class=\"list-group-item\">").append(s).append("</li>");
+                    String[] AttributesString = currentAttributes.group().split(";");
+
+
+                    System.out.println("currentAttributes = " + currentAttributes.group());
+
+                    for (String s : AttributesString) {
+                            attributeList.append("<li class=\"list-group-item\">").append(s.replace("{", "").replace("}", "").replace("'", "")).append("</li>");
+                        }
                     }
-                    i++;
+                    attributeList.append("</ul>");
                 }
-                attributeList.append("</ul>");
 
-
-
-
-
-
-            }
             if (moleculeMatch.find()) {
                 String mol = moleculeMatch.group(1);
                 if (indexMatch.find()) {
@@ -226,7 +224,6 @@ public class convertGrappaMolecule {
                     output += "['" + mol + mol_val + "', {color: '" + colors.get(mol)+ "'}],";
                 } else {output += "['" + mol + "', {color: '" + colors.get(mol)+"'}],";}
             } else {
-                System.out.println(val);
                 output += "['" + val.trim() + "'],";
             }
 
@@ -236,7 +233,6 @@ public class convertGrappaMolecule {
         }
         //Print the right nodes string with colors
         this.setNodeAttributes(attributeList.toString());
-        System.out.println(output.substring(0,output.length()-1));
         return output.substring(0, output.length()-1)+ "]";
 
     }

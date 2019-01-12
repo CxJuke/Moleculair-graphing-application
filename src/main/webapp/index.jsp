@@ -16,11 +16,6 @@
     <script type="text/javascript" src="js/jsnetworkx.unminify.js"></script>
     <script src="js/hover.js"></script>
     <script src="js/stringFormatter.js"></script>
-
-
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -51,6 +46,7 @@
 
     <div class="container-fluid">
         <div id="mainContainer" class="col-12 h-75">
+
         </div>
     </div>
     <button type="button" class="btn btn-primary col-lg-1" style="float: none;margin: 0 auto;" data-toggle="modal" data-target=".bd-example-modal-lg">Save Molecule</button>
@@ -78,10 +74,5 @@
         </div>
     </div>
 </div>
-<div id="scripts" hidden>
-
-</div>
-<div id="scripts2" hidden></div>
-
 </body>
 </html>
