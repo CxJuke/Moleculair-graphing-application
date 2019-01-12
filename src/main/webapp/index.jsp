@@ -33,15 +33,19 @@
         <h1><i class="offset-5"></i><strong>Molecule Graph</strong></h1>
     </div>
         <form>
-            <div class="form-group row">
-                <div class="col-sm-12">
-                    <input id="t" class="form-control form-control-lg" type="text" placeholder="Begin building your molecule...">
-                    <div class="invalid-feedback">
+            <div class="form-row">
+                <div class="col-sm-11">
+
+                    <label class="sr-only" for="t">Molecule String</label>
+                    <input id="t" class="form-control" type="text" placeholder="Begin building your molecule...">
+                    <div class="invalid-feedback col-sm-12">
                         When building, make sure to separate each finished molecule with spaces & check if all brackets are closed. Click <a id="help">here</a> for more help
                     </div>
                 </div>
-            </div>
-
+                    <div class="col-1 text-center">
+                        <button type="button" class="btn btn-primary" style="width: 90%" data-toggle="modal" data-target=".bd-example-modal-lg">Save</button>
+                    </div>
+                </div>
         </form>
 
     <div class="container-fluid">
@@ -49,7 +53,7 @@
 
         </div>
     </div>
-    <button type="button" class="btn btn-primary col-lg-1" style="float: none;margin: 0 auto;" data-toggle="modal" data-target=".bd-example-modal-lg">Save Molecule</button>
+
 
 </div>
 
@@ -67,7 +71,7 @@
                     <label for="SaveMolecule">Molecule build string that will be saved</label>
                     <input type="text" class="form-control" id="SaveMolecule" value="" readonly>
                 </div>
-                <input class="btn btn-primary" type="submit" value="Save">
+                <input id="savingMolecule" class="btn btn-primary" type="submit" value="Save">
             </form>
 
             </div>

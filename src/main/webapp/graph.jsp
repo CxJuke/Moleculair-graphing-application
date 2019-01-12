@@ -3,12 +3,16 @@
     status = '${requestScope.error}';
     mol_old = '${requestScope.mol_old}';
     var builder = $('#t');
+    var saver = $('#savingMolecule')
 
 
     if (status !== "true") {
         builder.addClass('is-invalid');
+        saver.attr("disabled", true)
+
 
     } else {
+        saver.attr("disabled", false)
         builder.removeClass('is-invalid');
         var G = new jsnx.Graph();
         G.addNodesFrom(${requestScope.nodes});
