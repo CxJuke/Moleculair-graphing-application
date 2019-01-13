@@ -26,7 +26,7 @@
         var status = 'true'
     </script>
 </head>
-<body>
+<body width="1000px">
 
 <div class="container-fluid">
     <div class="panel-heading">
