@@ -31,6 +31,10 @@
             },
             nodeAttr: {
                 r: 10
+            },
+            layoutAttr: {
+                charge: -120,
+                linkDistance: 20
             }
         });
     }
