@@ -26,7 +26,7 @@
         var status = 'true'
     </script>
 </head>
-<body width="1000px">
+<body>
 
 <div class="container-fluid">
     <div class="panel-heading">
@@ -39,7 +39,7 @@
                     <label class="sr-only" for="t">Molecule String</label>
                     <input id="t" class="form-control" type="text" placeholder="Begin building your molecule...">
                     <div class="invalid-feedback col-sm-12">
-                        When building, make sure to separate each finished molecule with spaces & check if all brackets are closed. Click <a href="help" data-toggle="modal" data-target="#help" id="#help">here</a> for more help
+                        When building, make sure to separate each finished molecule with spaces & check if all brackets are closed. Click <a href="#" data-toggle="modal" data-target="#help" id="#help">here</a> for more help
                     </div>
                 </div>
                     <div class="col-1 text-center">
@@ -55,7 +55,6 @@
 
         </div>
     </div>
-
 
 </div>
 
@@ -87,7 +86,7 @@
             <div class="container">
                 <h1 class="modal-title" id="exampleModalLabel">How to build a molecule?</h1>
                 <div class="modal-body">
-                    <p><strong>Build graphs from string definition: </strong></br>
+                    <p><strong>Build graphs from string definition: </strong><br>
 
                         Grappa allows constructing a graph using a linear sequence of tokens,
                         the grappa string. A token can be a node name, a definition of a series
@@ -95,44 +94,44 @@
                         grappa string is that the graph is extended from an active node. A new
                         node is connected to the active node. Using @ the active node can be
                         switched, and using () branches can be specified on an active node. A
-                        complete description of the grappa minilanguage is given below: </br></br>
+                        complete description of the grappa minilanguage is given below: <br><br>
 
-                        <strong>Grappa string Rules:</strong></br>
+                        <strong>Grappa string Rules:</strong><br>
 
                         <strong>name</strong>        : add node with name, with edge to active node
-                        (none at start, active parent at start of branch) </br></br>
-                        <strong>-name</strong>       : remove node with name </br></br>
+                        (none at start, active parent at start of branch) <br><br>
+                        <strong>-name</strong>       : remove node with name <br><br>
 
-                        <strong>@name</strong>       : select name as active node </br></br>
+                        <strong>@name</strong>       : select name as active node <br><br>
 
-                        <strong>(</strong>: set active node as active parent (start branching) </br></br>
+                        <strong>(</strong>: set active node as active parent (start branching) <br><br>
 
-                        <strong>,</strong>           : switch to new branch at active parent </br></br>
+                        <strong>,</strong>           : switch to new branch at active parent <br><br>
 
-                        <strong>)</strong>           : set active parent to active node </br></br>
+                        <strong>)</strong>           : set active parent to active node <br><br>
 
-                        <strong>=nameB</strong>      : rename active node (keep edges) </br></br>
+                        <strong>=nameB</strong>      : rename active node (keep edges) <br><br>
 
                         <strong>{attr=val}</strong>  : set attribute on active node (can be
                         attributes like:  element, charge, valence, stubs
                         element is set to FIRST LETTER of name,
                         unless speicfied as attribute
                         attribute chiral has tuple of three nodes,
-                        which define chirality according to right-hand rule </br></br>
+                        which define chirality according to right-hand rule <br><br>
 
                         <strong>!X</strong>          : connect active node to node X, which _must_ be present
                         already. Otherwise, using a name that is already there is an
-                        error </br></br>
+                        error <br><br>
 
-                        <strong>&lt;NAME&gt;</strong>      : include brick with given name </br></br>
+                        <strong>&lt;NAME&gt;</strong>      : include brick with given name <br><br>
 
-                        <strong><':NAME></strong>    : include brick with given name and add ' as suffix to nodes </br></br>
+                        <strong><':NAME></strong>    : include brick with given name and add ' as suffix to nodes <br><br>
 
                         <strong>&lt;NAME@X>;</strong>    : include brick with given name and add edge between active
-                        node and node 'X' of brick </br></br>
+                        node and node 'X' of brick <br><br>
 
                         <strong>/#=1-20/C#(H#[1-2])/</strong> : Expand by repetion and substitution according to
-                        range specified </br></br>
+                        range specified <br><br>
 
                         <strong>(/#=A-D/C#(H#[1-3]),/)</strong> : Expand to multiple branches
                     </p>
