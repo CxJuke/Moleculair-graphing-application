@@ -183,7 +183,7 @@ public class convertGrappaMolecule {
         String output = "[";
         String Attr = this.nodeAttributes;
 
-        Pattern molecule = Pattern.compile("([A-Z]{1,2})");
+        Pattern molecule = Pattern.compile("([A-Z])");
         Pattern index = Pattern.compile("(\\d{1,2})");
         Pattern AttributeString = Pattern.compile("\\{.+?}");
         StringBuilder attributeList = new StringBuilder();
@@ -214,18 +214,12 @@ public class convertGrappaMolecule {
                     }
                     attributeList.append("</ul>");
                 }
+            String mol = ID.substring(0,1);
+            System.out.println(mol);
 
-            if (moleculeMatch.find()) {
-                String mol = moleculeMatch.group(1);
-                if (indexMatch.find()) {
+            String mol_val = ID.substring(1);
 
-                    int mol_val = Integer.parseInt(indexMatch.group(1));
-
-                    output += "['" + mol + mol_val + "', {color: '" + colors.get(mol)+ "'}],";
-                } else {output += "['" + mol + "', {color: '" + colors.get(mol)+"'}],";}
-            } else {
-                output += "['" + val.trim() + "'],";
-            }
+            output += "['" + mol + mol_val + "', {color: '" + colors.get(mol)+ "'}],";
 
 
 
