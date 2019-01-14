@@ -49,7 +49,18 @@
                     <button type="button" class="btn btn-primary" style="width: 90%" data-toggle="modal" data-target="#help">Help</button>
                 </div>
                 </div>
+            <div class="container-fluid">
+                <button class="btn btn-sm" data-toggle="collapse" data-target="#demo"><span class="fas fa-search"></span>Prebuild molecules</button>
+                <div id="demo" class="collapse form-row">
+                    <div class="col-sm-10">
+                        <h1>hallo</h1>
+
+                    </div>
+                </div>
+                </div>
+            </div>
         </form>
+
     <div class="container-fluid">
         <div id="mainContainer" class="col-12 h-75">
 
@@ -65,12 +76,12 @@
             <form action="/save.molecule" method="post">
                 <div class="form-group">
                     <label for="moleculeName">Name for molecule</label>
-                    <input type="text" class="form-control" id="moleculeName" aria-describedby="namingHelp" placeholder="Molecule name">
+                    <input type="text" class="form-control" name="moleculeName" id="moleculeName" aria-describedby="namingHelp" placeholder="Molecule name">
                     <small id="namingHelp" class="form-text text-muted">Name the molecule you want to save. Make sure that this name describes the molecule correctly</small>
                 </div>
                 <div class="form-group">
                     <label for="SaveMolecule">Molecule build string that will be saved</label>
-                    <input type="text" class="form-control" id="SaveMolecule" value="" readonly>
+                    <input type="text" class="form-control" name="SaveMolecule" id="SaveMolecule" value="" readonly>
                 </div>
                 <input id="savingMolecule" class="btn btn-primary" type="submit" value="Save">
             </form>
