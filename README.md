@@ -31,6 +31,8 @@ Add the following parameters to the web.xml file:
 * grappa.path (path to the grappa.py file)
 * database (path to sqlite database)
 
+The following string is a molecule to test the website: "H1 C1(/#=2-4/(C#(H#[1-3]),)/)" or "\<PHE>" as example for a complete aminoacid.
+
 ## Deployment
 Add additional notes about how to deploy this on a live system
 
