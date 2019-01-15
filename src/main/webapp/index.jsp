@@ -57,6 +57,14 @@
     </div>
 
 </div>
+<form action="/Search" method="post">
+        <label for="moleculeName">Name for molecule</label>
+        <input type="text" class="form-control" name="searchstring" aria-describedby="namingHelp" placeholder="Molecule name">
+    </div>
+</form>
+<div>
+
+</div>
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
