@@ -92,7 +92,7 @@ public class databaseConnector {
      */
 
     public ArrayList<String> search(String name, String database) {
-        String query = "SELECT molecule from molecules WHERE name LIKE '" + name + "%'";
+        String query = "SELECT name from molecules WHERE name LIKE '" + name + "%'";
         ArrayList<String> names = new ArrayList<>();
 
         try (Connection connection = this.connect(database);
