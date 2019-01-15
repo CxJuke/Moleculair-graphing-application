@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "SearchServlet", urlPatterns = "/Search")
+@WebServlet(name = "SearchServlet", urlPatterns = "/input.Search")
 public class SearchServlet extends HttpServlet {
     /**
      * This function get the searchstring from the website
@@ -26,12 +26,17 @@ public class SearchServlet extends HttpServlet {
      *
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String Search = request.getParameter("searchstring");
+        String Search = request.getParameter("query");
         String database = getServletContext().getInitParameter("database");
         databaseConnector db = new databaseConnector();
         ArrayList<String> results =  db.search(Search, database);
-
+        String json = new Gson().toJson(results);
         System.out.println("results = " + results);
+
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(json);
+
 
 
     }

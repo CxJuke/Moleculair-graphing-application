@@ -16,11 +16,13 @@
     <script type="text/javascript" src="js/jsnetworkx.unminify.js"></script>
     <script src="js/hover.js"></script>
     <script src="js/stringFormatter.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="js/bootstrap.min.js"></script>
     <script src="js/formUpdater.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
     <script>
         var mol_old = ''
         var status = 'true'
@@ -67,21 +69,18 @@
         </div>
     </div>
 
-</div>
-<form action="/Search" method="post">
-        <label for="moleculeName">Name for molecule</label>
-        <input type="text" class="form-control" name="searchstring" aria-describedby="namingHelp" placeholder="Molecule name">
-    </div>
-</form>
-<div>
 
+<div>
+    <div class="input-group">
+        <input type="text" data-provide="typeahead" class="form-control typeahead border-primary" name="query" id="query" placeholder="search..." autocomplete="off">
+    </div>
 </div>
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="container">
-            <form action="/save.molecule" method="post">
+            <form action="save.molecule" method="post">
                 <div class="form-group">
                     <label for="moleculeName">Name for molecule</label>
                     <input type="text" class="form-control" name="moleculeName" id="moleculeName" aria-describedby="namingHelp" placeholder="Molecule name">
