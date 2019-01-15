@@ -39,9 +39,7 @@ public class databaseConnector {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
+            } catch (IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }
         return connection;

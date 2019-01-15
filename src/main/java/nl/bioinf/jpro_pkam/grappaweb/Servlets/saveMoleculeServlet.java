@@ -24,24 +24,18 @@ public class saveMoleculeServlet extends HttpServlet {
      * a user-friendly error.
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String molecule = request.getParameter("molecule");
-        String name = request.getParameter("name");
+        String molecule = request.getParameter("SaveMolecule");
+        String name = request.getParameter("moleculeName");
         String database = getServletContext().getInitParameter("database");
         databaseConnector db = new databaseConnector();
         try {
             db.create(database);
+            System.out.println(name + '\n'+ molecule + '\n'+ database);
             db.insert(name, molecule, database);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         response.sendRedirect("/");
-
-
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }
