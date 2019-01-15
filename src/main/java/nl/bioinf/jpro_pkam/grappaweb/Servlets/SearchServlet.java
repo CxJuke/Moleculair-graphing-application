@@ -5,6 +5,7 @@ package nl.bioinf.jpro_pkam.grappaweb.Servlets;
  * to make other molecules.
  */
 
+import com.google.gson.Gson;
 import nl.bioinf.jpro_pkam.grappaweb.Database.databaseConnector;
 
 import javax.servlet.ServletException;
@@ -31,7 +32,6 @@ public class SearchServlet extends HttpServlet {
         databaseConnector db = new databaseConnector();
         ArrayList<String> results =  db.search(Search, database);
         String json = new Gson().toJson(results);
-        System.out.println("results = " + results);
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

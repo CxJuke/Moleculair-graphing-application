@@ -39,7 +39,7 @@
                 <div class="col-sm-10">
 
                     <label class="sr-only" for="t">Molecule String</label>
-                    <input id="t" class="form-control" type="text" placeholder="Begin building your molecule...">
+                    <input id="t" class="form-control" type="text" placeholder="Begin building your molecule..." autocomplete="off">
                     <div class="invalid-feedback col-sm-12">
                         When building, make sure to separate each finished molecule with spaces & check if all brackets are closed. Click <a href="#" data-toggle="modal" data-target="#help" id="#help">here</a> for more help
                     </div>

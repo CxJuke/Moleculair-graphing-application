@@ -92,7 +92,7 @@ public class databaseConnector {
      */
 
     public ArrayList<String> search(String name, String database) {
-        String query = "SELECT name from molecules WHERE name LIKE '" + name + "%'";
+        String query = "SELECT name from molecules WHERE name LIKE '%" + name + "%'";
         ArrayList<String> names = new ArrayList<>();
 
         try (Connection connection = this.connect(database);
@@ -107,5 +107,25 @@ public class databaseConnector {
             System.out.println(e.getMessage());
         } return names;
 
+    }
+
+    public String getMolecule(String name, String database) {
+        String query = "SELECT molecule from molecules WHERE name == '" + name + "'";
+        String molecule = "";
+
+        try (Connection connection = this.connect(database);
+             PreparedStatement pstmt = connection.prepareStatement(query)) {
+            ResultSet rs = pstmt.executeQuery();
+
+            molecule = rs.getString(1);
+            System.out.println("molecule = " + molecule);
+
+
+
+            } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
+
+        } return molecule;
     }
 }

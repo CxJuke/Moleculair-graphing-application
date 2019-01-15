@@ -33,8 +33,8 @@
                 r: 10
             },
             layoutAttr: {
-                charge: -120,
-                linkDistance: 20
+                charge: -200,
+                linkDistance: 25
             }
         });
     }
