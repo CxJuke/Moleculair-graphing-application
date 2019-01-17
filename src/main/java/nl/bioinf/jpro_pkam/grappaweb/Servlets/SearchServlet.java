@@ -1,10 +1,5 @@
 package nl.bioinf.jpro_pkam.grappaweb.Servlets;
 
-/**
- * This class catch the moleculename from the searchbar on the website. This molecule is saved before and can be used
- * to make other molecules.
- */
-
 import com.google.gson.Gson;
 import nl.bioinf.jpro_pkam.grappaweb.Database.databaseConnector;
 
@@ -16,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * This class catch the moleculename from the searchbar on the website. This molecule is saved before and can be used
+ * to make other molecules.
+ *
+ * @author Jouke Profijt & Priscilla Kamphuis
+ */
 @WebServlet(name = "SearchServlet", urlPatterns = "/input.Search")
 public class SearchServlet extends HttpServlet {
     /**

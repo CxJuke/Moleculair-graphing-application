@@ -1,32 +1,32 @@
 package nl.bioinf.jpro_pkam.grappaweb.python_interaction;
 
- /**
-* This program makes two objects: nodes and edges.
-* The nodes object is a manipulated string to get colors for the atoms in the drawn molecule.
-* The input is a string with nodes and the new output must be a manipulated string with colors added in this form:
-* G.addNodesFrom([
-    [1, {color: 'red'}],
-    [2, {color: 'green'}],
-    [3, {color: 'white'}]|
-* Our drawing tool requires this form to give the atoms from the molecule a proper color.
-* The following colors are added to each atom with this class:
-* Standard colours:
-    Hydrogen = White
-    Oxygen = Red
-    Nitrogen = Blue
-    Carbon = Grey
-    Sulphur = Yellow
-    Phosphorus = Orange
-  -----------------------
-    Updated to use Jmol hex colorcodes which gives the molecules a lot more color options
-    [H, {color: 'FFFFFF'}
-**/
-
- // Imports
-
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+/**
+ * This program makes two objects: nodes and edges.
+ * The nodes object is a manipulated string to get colors for the atoms in the drawn molecule.
+ * The input is a string with nodes and the new output must be a manipulated string with colors added in this form:
+ * G.addNodesFrom([
+ [1, {color: 'red'}],
+ [2, {color: 'green'}],
+ [3, {color: 'white'}]|
+ * Our drawing tool requires this form to give the atoms from the molecule a proper color.
+ * The following colors are added to each atom with this class:
+ * Standard colours:
+ Hydrogen = White
+ Oxygen = Red
+ Nitrogen = Blue
+ Carbon = Grey
+ Sulphur = Yellow
+ Phosphorus = Orange
+ -----------------------
+ Updated to use Jmol hex colorcodes which gives the molecules a lot more color options
+ [H, {color: 'FFFFFF'}
+ *
+ * @author Jouke Profijt & Priscilla Kamphuis
+ **/
 public class convertGrappaMolecule {
 
 
@@ -41,8 +41,6 @@ public class convertGrappaMolecule {
      * this function fills the hashmap with the right information & makes object nodes
      * @param nodes
      */
-
-
     public void setNodes(String nodes){
         colors.put("H","#FFFFFF");
         colors.put("HE","#D9FFFF");
@@ -168,6 +166,10 @@ public class convertGrappaMolecule {
 
     }
 
+    /**
+     * This function set the nodes
+     * @param arg The nodes String
+     */
     public void setNodeAttributes(String arg) {
 
         System.out.println(arg);

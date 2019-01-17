@@ -1,10 +1,5 @@
 package nl.bioinf.jpro_pkam.grappaweb.Servlets;
 
-/**
- * This class get the typed molecule and the moleculename from the save modal and connect with the database to save the
- * molecule.
- */
-
 import nl.bioinf.jpro_pkam.grappaweb.Database.databaseConnector;
 
 import javax.servlet.ServletException;
@@ -15,8 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * This class get the typed molecule and the moleculename from the save modal and connect with the database to save the
+ * molecule.
+ *
+ * @author Jouke Profijt & Priscilla Kamphuis
+ */
 @WebServlet(name = "saveMoleculeServlet", urlPatterns = "/save.molecule")
-
 public class saveMoleculeServlet extends HttpServlet {
     /**
      * This function get the molecule and moleculename parameter from the form, connect with the database and save the

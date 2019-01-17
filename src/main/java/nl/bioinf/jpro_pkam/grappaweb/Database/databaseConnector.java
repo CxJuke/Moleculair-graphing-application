@@ -1,13 +1,14 @@
 package nl.bioinf.jpro_pkam.grappaweb.Database;
 
-/**
- * This class create the database, connect to the database, insert information into the database and make possible
- * to search a molecule in the database.
- */
-
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * This class create the database, connect to the database, insert information into the database and make possible
+ * to search a molecule in the database.
+ *
+ * @author Jouke Profijt & Priscilla Kamphuis
+ */
 public class databaseConnector {
     /**
      * This function creates the database
@@ -109,6 +110,12 @@ public class databaseConnector {
 
     }
 
+    /**
+     * This function finds the build string for the selected molecule
+     * @param name Moleculename saved in the database
+     * @param database Name of the database
+     * @return molecule build string
+     */
     public String getMolecule(String name, String database) {
         String query = "SELECT molecule from molecules WHERE name == '" + name + "'";
         String molecule = "";
