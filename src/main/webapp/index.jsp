@@ -36,7 +36,7 @@
     </div>
         <form>
             <div class="form-row">
-                <div class="col-sm-10">
+                <div class="col-sm-8">
 
                     <label class="sr-only" for="t">Molecule String</label>
                     <input id="t" class="form-control" type="text" placeholder="Begin building your molecule..." autocomplete="off">
@@ -44,21 +44,15 @@
                         When building, make sure to separate each finished molecule with spaces & check if all brackets are closed. Click <a href="#" data-toggle="modal" data-target="#help" id="#help">here</a> for more help
                     </div>
                 </div>
+                <div class="input-group col-sm-2">
+                    <label class="sr-only" for="query">Molecule Search</label>
+                    <input type="text" data-provide="typeahead" class="form-control typeahead" name="query" id="query" placeholder="search..." autocomplete="off">
+                </div>
                     <div class="col-1 text-center">
                         <button type="button" class="btn btn-primary" style="width: 90%" data-toggle="modal" data-target=".bd-example-modal-lg">Save</button>
                     </div>
                 <div class="col-1 text-center">
                     <button type="button" class="btn btn-primary" style="width: 90%" data-toggle="modal" data-target="#help">Help</button>
-                </div>
-                </div>
-            <div class="container-fluid">
-                <button class="btn btn-sm" data-toggle="collapse" data-target="#demo"><span class="fas fa-search"></span>Prebuild molecules</button>
-                <div id="demo" class="collapse form-row">
-                    <div class="col-sm-10">
-                        <h1>hallo</h1>
-
-                    </div>
-                </div>
                 </div>
             </div>
         </form>
@@ -71,9 +65,7 @@
 
 
 <div>
-    <div class="input-group">
-        <input type="text" data-provide="typeahead" class="form-control typeahead border-primary" name="query" id="query" placeholder="search..." autocomplete="off">
-    </div>
+
 </div>
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -83,7 +75,7 @@
             <form action="save.molecule" method="post">
                 <div class="form-group">
                     <label for="moleculeName">Name for molecule</label>
-                    <input type="text" class="form-control" name="moleculeName" id="moleculeName" aria-describedby="namingHelp" placeholder="Molecule name">
+                    <input type="text" class="form-control" name="moleculeName" id="moleculeName" aria-describedby="namingHelp" placeholder="Molecule name" autocomplete="off">
                     <small id="namingHelp" class="form-text text-muted">Name the molecule you want to save. Make sure that this name describes the molecule correctly</small>
                 </div>
                 <div class="form-group">
@@ -96,6 +88,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <div class="modal fade bd-example-modal-lg" id="help" tabindex="-1" role="dialog" aria-labelledby="helpLabel" aria-hidden="true">

@@ -44,7 +44,9 @@ $(document).ready(function () {
                 {moleculeName: molecule},
                 function (data) {
                 console.log(data);
+                    $('#t').val(data);
                     drawMolecule(data);
+
                 })
         }
 

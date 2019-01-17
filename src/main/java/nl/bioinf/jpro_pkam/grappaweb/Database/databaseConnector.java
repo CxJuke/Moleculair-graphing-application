@@ -135,4 +135,34 @@ public class databaseConnector {
 
         } return molecule;
     }
+
+    /**
+     * This function checks if the database doesnt contain the name or molecule
+     * @param name molecule name
+     * @param molecule molecule build string
+     * @param database database name
+     * @return
+     */
+
+    public boolean checkExisting(String name, String molecule, String database){
+        String queryName = "SELECT * FROM molecules where name == '" + name + "'";
+        String queryMolecule = "SELECT * FROM molecules where molecule == '" + molecule + "'";
+        boolean empty = false;
+
+        try (Connection connection = this.connect(database);
+            PreparedStatement pstmtName = connection.prepareStatement(queryName)) {
+            ResultSet rs = pstmtName.executeQuery();
+
+            PreparedStatement pstmtMolecule = connection.prepareStatement(queryMolecule);
+            ResultSet rsM = pstmtMolecule.executeQuery();
+
+            if (!rs.next() && !rsM.next()) {
+                empty = false;
+            } else {
+                empty = true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } return empty;
+    }
 }
