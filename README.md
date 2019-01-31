@@ -22,11 +22,17 @@ What things you need to install the software and how to install them.
 
 After cloning you are required to create a working python virtual enviroment with the following packages:
 * sphinx >= 1.8.0
+
 * sphinxcontrib-apidoc
+
 * pbr
+
 * setuptools >= 30.3.0
+
 * numpy
+
 * networkx ~= 2.0
+
 * scipy
 These packages are required for vermouth-martinize where we are using grappa.py from.
 So also install [vermouth-martinize](https://github.com/marrink-lab/vermouth-martinize) into the enviroment.
@@ -37,7 +43,9 @@ Start in IntellJ and run index.jsp with the TomCat server to get the webpage.
 
 Add the following parameters to the web.xml file: 
 * pythonVenv (path to virtual enviorment you created in installing section)
+
 * grappa.path (path to the grappa.py file, usually src/main/python/grappa.py)
+
 * database (path to sqlite database, usually src/main/webapp/data/molecules.sqlite)
 
 
