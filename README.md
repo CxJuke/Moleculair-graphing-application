@@ -21,6 +21,7 @@ What things you need to install the software and how to install them.
 ### Installing
 
 After cloning you are required to create a working python virtual enviroment with the following packages:
+
 * sphinx >= 1.8.0
 
 * sphinxcontrib-apidoc
