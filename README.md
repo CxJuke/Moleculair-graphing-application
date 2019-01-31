@@ -5,7 +5,9 @@ If you are satisfied with your molecule, it's possible to save it with the molec
 
 ## Getting started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+```
+git clone https://Pkamphuis@bitbucket.org/Pkamphuis/molecular_graphing-webapplication.git
+```
 
 ### Prerequisites
 
@@ -17,24 +19,36 @@ What things you need to install the software and how to install them.
 * [Python 3.5](https://www.python.org/downloads/release/python-350/)
 
 ### Installing
-A step by step series of examples that tell you how to get a development env running
 
-```
-git clone https://Pkamphuis@bitbucket.org/Pkamphuis/molecular_graphing-webapplication.git
-```
+After cloning you are required to create a working python virtual enviroment with the following packages:
+* sphinx >= 1.8.0
+* sphinxcontrib-apidoc
+* pbr
+* setuptools >= 30.3.0
+* numpy
+* networkx ~= 2.0
+* scipy
+These packages are required for vermouth-martinize where we are using grappa.py from.
+So also install [vermouth-martinize](https://github.com/marrink-lab/vermouth-martinize) into the enviroment.
+
 
 ### Usage
 Start in IntellJ and run index.jsp with the TomCat server to get the webpage.
 
 Add the following parameters to the web.xml file: 
-* pythonVenv (path to python 3.5)
-* grappa.path (path to the grappa.py file)
-* database (path to sqlite database)
+* pythonVenv (path to virtual enviorment you created in installing section)
+* grappa.path (path to the grappa.py file, usually src/main/python/grappa.py)
+* database (path to sqlite database, usually src/main/webapp/data/molecules.sqlite)
+
 
 The following string is a molecule to test the website: "H1 C1(/#=2-4/(C#(H#[1-3]),)/)" or "\<PHE>" as example for a complete aminoacid.
 
-## Deployment
-Add additional notes about how to deploy this on a live system
+If the user wants premade molecules with proper names to use in the search function run the src/main/webapp/data/database.sql script in the molecules.sqlite database.
+
+```
+sqlite3 src/main/webapp/data/molecules.sqlite
+sqlite> .read src/main/webapp/data/database.sql
+```
 
 ## Built with
 * [Gradle](https://gradle.org/)
