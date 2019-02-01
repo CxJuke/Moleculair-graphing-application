@@ -35,6 +35,7 @@ After cloning you are required to create a working python virtual enviroment wit
 * networkx ~= 2.0
 
 * scipy
+
 These packages are required for vermouth-martinize where we are using grappa.py from.
 So also install [vermouth-martinize](https://github.com/marrink-lab/vermouth-martinize) into the enviroment.
 
@@ -52,12 +53,16 @@ Add the following parameters to the web.xml file:
 
 The following string is a molecule to test the website: "H1 C1(/#=2-4/(C#(H#[1-3]),)/)" or "\<PHE>" as example for a complete aminoacid.
 
-If the user wants premade molecules with proper names to use in the search function run the src/main/webapp/data/database.sql script in the molecules.sqlite database.
+Create basic molecule database for saving with premade amino acids:
 
 ```
 sqlite3 src/main/webapp/data/molecules.sqlite
 sqlite> .read src/main/webapp/data/database.sql
 ```
+
+![Very simple molecule saving](Diagrams/Simple_MoleculeDB.png)
+
+Simple molecule saving in this database/table
 
 ## Built with
 * [Gradle](https://gradle.org/)
